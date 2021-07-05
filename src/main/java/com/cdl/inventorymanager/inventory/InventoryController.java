@@ -1,7 +1,5 @@
 package com.cdl.inventorymanager.inventory;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +17,7 @@ public class InventoryController {
     }
 
     @GetMapping
-    public List<Inventory> getInventories() {
-        return inventoryService.getInventories();
+    public Inventory getInventory() {
+        return inventoryService.getInventory();
     }
 }
