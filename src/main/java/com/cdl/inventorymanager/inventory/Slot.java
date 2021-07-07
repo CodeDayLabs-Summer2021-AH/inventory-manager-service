@@ -19,14 +19,6 @@ public class Slot {
         this.verificationDate = verificationDate;
     }
 
-    public Slot(Long id, String name, Long quantity, String section, Date verificationDate) {
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.section = section;
-        this.verificationDate = verificationDate;
-    }
-
     public Long getId() {
         return id;
     }
