@@ -2,7 +2,19 @@ package com.cdl.inventorymanager.inventory;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Slot {
+    @Id
+    @SequenceGenerator(name = "slot_sequence", sequenceName = "slot_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "slot_sequence")
     private Long id;
     private String name;
     private Long quantity;
