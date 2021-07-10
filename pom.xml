@@ -15,6 +15,9 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>16</java.version>
+		<sonar.projectKey>CodeDayLabs-Summer2021-AH_inventory-manager-service</sonar.projectKey>
+		<sonar.organization>codedaylabs-summer2021-ah</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
