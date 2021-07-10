@@ -32,4 +32,5 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       #Run Tests
       - name: Run Tests
-        run: mvn -B test
+        run: mvn test -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -B
+
