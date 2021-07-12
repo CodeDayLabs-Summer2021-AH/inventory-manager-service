@@ -130,5 +130,5 @@ jobs:
           application_name: CDL-Test
           environment_name: Cdltest-env
           version_label: ${{github.SHA}}
-          region: us-east-1
+          region: us-east-2
           deployment_package: inventory-manager-0.0.1-SNAPSHOT.jar
