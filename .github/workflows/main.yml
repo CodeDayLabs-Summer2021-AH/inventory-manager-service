@@ -113,7 +113,7 @@ jobs:
         #Download the artifact which was uploaded in the build's job
         uses: actions/download-artifact@v2
         with:
-          name: inventory-manager-0.0.1
+          name: CDL-Test
       #Deploy the artifact (JAR) into AWS Beanstalk
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v13
