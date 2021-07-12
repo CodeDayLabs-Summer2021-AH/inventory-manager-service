@@ -11,7 +11,6 @@ jobs:
   #Test's job
   tests:
     name: Unit tests
-    #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
     #Job's steps
     steps:
@@ -113,7 +112,7 @@ jobs:
         #Download the artifact which was uploaded in the build's job
         uses: actions/download-artifact@v2
         with:
-          name: CDL-Test
+          name: inventory-manager-0.0.1
       #Deploy the artifact (JAR) into AWS Beanstalk
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v13
@@ -122,7 +121,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
           use_existing_version_if_available: true
-          application_name: Inventory-Manager-Service-Test
+          application_name: CDL-Test
           environment_name: Cdltest-env
           version_label: ${{github.SHA}}
           region: us-east-1
