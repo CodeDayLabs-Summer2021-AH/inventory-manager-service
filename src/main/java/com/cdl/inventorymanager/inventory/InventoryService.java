@@ -1,7 +1,5 @@
 package com.cdl.inventorymanager.inventory;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +12,7 @@ public class InventoryService {
         this.inventoryRepository = inventoryRepository;
     }
 
-    public Optional<Inventory> getInventory(Long id) {
-        return inventoryRepository.findById(id);
+    public Inventory getInventory(Long id) {
+        return inventoryRepository.findById(id).orElseThrow(() -> new InventoryNotFoundException(id));
     }
 }

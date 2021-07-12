@@ -1,12 +1,12 @@
 package com.cdl.inventorymanager.inventory;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,16 +21,16 @@ public class InventoryController {
     }
 
     @GetMapping
-    public ResponseEntity<Object> getInventory() {
+    public Inventory getInventory() {
         // TODO: Don't use hardcoded id. Use a query parameter instead.
         Long id = 1l;
 
-        Optional<Inventory> inventory = inventoryService.getInventory(id);
-        if (inventory.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK).body(inventory.get());
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(String.format("Inventory with id '%d' not found!", id));
-        }
+        return inventoryService.getInventory(id);
+    }
+
+    @ExceptionHandler(InventoryNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handleInventoryNotFound(RuntimeException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 }
