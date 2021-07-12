@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+      - ci-cd-test
 jobs:
   #Test's job
   tests:
