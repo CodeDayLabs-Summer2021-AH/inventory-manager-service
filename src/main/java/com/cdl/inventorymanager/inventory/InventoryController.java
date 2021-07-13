@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.*;
+import io.swagger.v3.oas.annotations.responses.*;
 
 @RestController
+@RestControllerAdvice
 @RequestMapping(path = "/api/v1/inventory")
 public class InventoryController {
 
@@ -20,6 +26,11 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
 
+    @Operation(summary = "Get an inventory")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the inventory", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Inventory.class)) }),
+            @ApiResponse(responseCode = "404", description = "Inventory not found", content = @Content) })
     @GetMapping
     public Inventory getInventory() {
         // TODO: Don't use hardcoded id. Use a query parameter instead.
