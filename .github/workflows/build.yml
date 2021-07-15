@@ -7,10 +7,11 @@ on:
   push:
     branches:
       - ci-cd-jobs
+      - week-3-dev
 jobs:
   #Test's job
   tests:
-    name: Unit tests
+    name: Unit Tests
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
     #Job's steps
@@ -38,7 +39,7 @@ jobs:
   sonar:
     #Depends on test's job
     needs: tests
-    name: SonarCloud analysis
+    name: SonarCloud Analysis
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
     #Job's steps
