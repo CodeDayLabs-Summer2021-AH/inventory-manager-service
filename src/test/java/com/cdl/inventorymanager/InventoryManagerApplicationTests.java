@@ -2,8 +2,6 @@ package com.cdl.inventorymanager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.cdl.inventorymanager.inventory.InventoryController;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class InventoryManagerApplicationTests {
 
 	@Autowired
-	private InventoryController inventoryController;
+	private InventoryManagerApplication inventoryManagerApplication;
 
 	@Test
 	void contextLoads() {
@@ -20,6 +18,6 @@ class InventoryManagerApplicationTests {
 
 	@Test
 	void health() {
-		assertEquals("HEALTH CHECK OK!", inventoryController.healthCheck());
+		assertEquals("HEALTH CHECK OK!", inventoryManagerApplication.healthCheck());
 	}
 }

@@ -20,10 +20,6 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
 
-    public String healthCheck() {
-        return "HEALTH CHECK OK!";
-    }
-
     @GetMapping
     public Inventory getInventory() {
         // TODO: Don't use hardcoded id. Use a query parameter instead.
